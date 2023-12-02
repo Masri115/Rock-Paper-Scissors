@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            var randomNumber = Math.floor(Math.random() * 3);
+            
+            if (randomNumber === 0) {
+                return "Paper";
+            }       
+            else if (randomNumber === 1) {
+                return "Rock";
+            }
+            else {
+                return "Scissors";
+            }
+        }
+
+        var randomChoice = getComputerChoice();
+        console.log(randomChoice);
+
+        function playerSelection() {
+            var choice = prompt("Enter your choice").toLowerCase();
+            return choice;
+        }
+
+        var userChoice = playerSelection();
+        console.log(userChoice);
+
+        var result = PlayRound(userChoice, randomChoice);
+        console.log(result);
+
+        function PlayRound(playerChoice, computerChoice) {
+            var choices = ["paper", "rock", "scissors"];
+
+            playerChoice = playerChoice.toLowerCase();
+            computerChoice = computerChoice.toLowerCase();
+
+            if (playerChoice === computerChoice) {
+                return "It's a tie!";
+            } else if (
+                (playerChoice === "rock" && computerChoice === "scissors") ||
+                (playerChoice === "scissors" && computerChoice === "paper") ||
+                (playerChoice === "paper" && computerChoice === "rock")
+            ) {
+                return "You Win! Mazeltoff! " + playerChoice + " beats " + computerChoice;
+            } else {
+                return "You lose! Try Again! " + computerChoice + " beats " + playerChoice;
+            }
+        }
+    </script>
+</body>
+</html>
