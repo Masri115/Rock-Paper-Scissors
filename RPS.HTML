@@ -6,53 +6,12 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-        function getComputerChoice() {
-            var randomNumber = Math.floor(Math.random() * 3);
-            
-            if (randomNumber === 0) {
-                return "Paper";
-            }       
-            else if (randomNumber === 1) {
-                return "Rock";
-            }
-            else {
-                return "Scissors";
-            }
-        }
+    <button id="B1" value="Paper">Paper</button>
+    <button id="B2" value="Rock">Rock</button>
+    <button id="B3" value="Scissors">Scissors</button>
+    
+    <div id="result"></div>
 
-        var randomChoice = getComputerChoice();
-        console.log(randomChoice);
-
-        function playerSelection() {
-            var choice = prompt("Enter your choice").toLowerCase();
-            return choice;
-        }
-
-        var userChoice = playerSelection();
-        console.log(userChoice);
-
-        var result = PlayRound(userChoice, randomChoice);
-        console.log(result);
-
-        function PlayRound(playerChoice, computerChoice) {
-            var choices = ["paper", "rock", "scissors"];
-
-            playerChoice = playerChoice.toLowerCase();
-            computerChoice = computerChoice.toLowerCase();
-
-            if (playerChoice === computerChoice) {
-                return "It's a tie!";
-            } else if (
-                (playerChoice === "rock" && computerChoice === "scissors") ||
-                (playerChoice === "scissors" && computerChoice === "paper") ||
-                (playerChoice === "paper" && computerChoice === "rock")
-            ) {
-                return "You Win! Mazeltoff! " + playerChoice + " beats " + computerChoice;
-            } else {
-                return "You lose! Try Again! " + computerChoice + " beats " + playerChoice;
-            }
-        }
-    </script>
+    <script src="RPS.js"></script>
 </body>
 </html>
