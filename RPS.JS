@@ -3,7 +3,7 @@ var computerScore = 0;
 var maxPoints = 5;
 
 function getComputerChoice() {
-    var randomNumber = Math.floor(Math.random() * 3);
+    var randomNumber = Math.floor(Math.random() * 3); // Math.random give me a "random" number between 0 & 1 (not included). 
     
     if (randomNumber === 0) {
         return "Paper";
@@ -30,9 +30,9 @@ function playRound(playerChoice) {
         if (playerChoice === computerChoice.toLowerCase()) {
             updateResult("It's a tie!");
         } else if (
-            (playerChoice === "rock" && computerChoice === "scissors") ||
-            (playerChoice === "scissors" && computerChoice === "paper") ||
-            (playerChoice === "paper" && computerChoice === "rock")
+            (playerChoice === "rock" && computerChoice.toLowerCase === "scissors") ||
+            (playerChoice === "scissors" && computerChoice.toLowerCase === "paper") ||
+            (playerChoice === "paper" && computerChoice.toLowerCase === "rock")
         ) {
             userScore++;
             updateResult("You Win! Mazeltoff! " + playerChoice + " beats " + computerChoice);
