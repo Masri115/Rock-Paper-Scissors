@@ -3,7 +3,7 @@ var computerScore = 0;
 var maxPoints = 5;
 
 function getComputerChoice() {
-    var randomNumber = Math.floor(Math.random() * 3);
+    var randomNumber = Math.floor(Math.random() * 3); // Math.random give me a "random" number between 0 & 1 (not included). 
     
     if (randomNumber === 0) {
         return "Paper";
@@ -28,19 +28,19 @@ function playRound(playerChoice) {
         playerChoice = playerChoice.toLowerCase();
         computerChoice = computerChoice.toLowerCase();
 
-if (playerChoice === computerChoice) {
-    updateResult("It's a tie!");
-} else if (
-    (playerChoice === "rock" && computerChoice === "scissors") ||
-    (playerChoice === "scissors" && computerChoice === "paper") ||
-    (playerChoice === "paper" && computerChoice === "rock")
-) {
-    userScore++;
-    updateResult("You Win! Mazeltoff! " + playerChoice + " beats " + computerChoice);
-} else {
-    computerScore++;
-    updateResult("You lose! Try Again! " + computerChoice + " beats " + playerChoice);
-}{}
+        if (playerChoice === computerChoice.toLowerCase()) {
+            updateResult("It's a tie!");
+        } else if (
+            (playerChoice === "rock" && computerChoice === "scissors") ||
+            (playerChoice === "scissors" && computerChoice === "paper") ||
+            (playerChoice === "paper" && computerChoice === "rock")
+        ) {
+            userScore++;
+            updateResult("You Win! Mazeltoff! " + playerChoice + " beats " + computerChoice);
+        } else {
+            computerScore++;
+            updateResult("You lose! Try Again! " + computerChoice + " beats " + playerChoice);
+        }
     }
 
     if (userScore === maxPoints || computerScore === maxPoints) {
