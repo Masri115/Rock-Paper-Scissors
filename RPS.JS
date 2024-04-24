@@ -26,20 +26,21 @@ function playRound(playerChoice) {
 
     if (userScore < maxPoints && computerScore < maxPoints) {
         playerChoice = playerChoice.toLowerCase();
+        computerChoice = computerChoice.toLowerCase();
 
-        if (playerChoice === computerChoice.toLowerCase()) {
-            updateResult("It's a tie!");
-        } else if (
-            (playerChoice === "rock" && computerChoice === "scissors") ||
-            (playerChoice === "scissors" && computerChoice === "paper") ||
-            (playerChoice === "paper" && computerChoice === "rock")
-        ) {
-            userScore++;
-            updateResult("You Win! Mazeltoff! " + playerChoice + " beats " + computerChoice);
-        } else {
-            computerScore++;
-            updateResult("You lose! Try Again! " + computerChoice + " beats " + playerChoice);
-        }
+if (playerChoice === computerChoice) {
+    updateResult("It's a tie!");
+} else if (
+    (playerChoice === "rock" && computerChoice === "scissors") ||
+    (playerChoice === "scissors" && computerChoice === "paper") ||
+    (playerChoice === "paper" && computerChoice === "rock")
+) {
+    userScore++;
+    updateResult("You Win! Mazeltoff! " + playerChoice + " beats " + computerChoice);
+} else {
+    computerScore++;
+    updateResult("You lose! Try Again! " + computerChoice + " beats " + playerChoice);
+}{}
     }
 
     if (userScore === maxPoints || computerScore === maxPoints) {
